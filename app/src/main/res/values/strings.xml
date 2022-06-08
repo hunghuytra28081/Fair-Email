@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">FairEmail</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Hello Food!</string>
+    <string name="slide_1_desc">The easiest way to order food from your favourite restaurant!</string>
+
+    <string name="slide_2_title">Movie Tickets</string>
+    <string name="slide_2_desc">Book movie tickets for your family and friends!</string>
+
+    <string name="slide_3_title">Great Discounts</string>
+    <string name="slide_3_desc">Best discounts on every single service we offer!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+
+    <string name="already_login_screen"><font color='#000000'>By continuing you agree to the Spark</font> <font color='#3D8AFF'>Terms of Service</font> <font color='#000000'>and</font> <font color='#3D8AFF'>Privacy Policy</font></string>
+    <string name="rules_login"><font color='#000000'>By continuing you agree to the Spark</font> <font color='#3D8AFF'><a href="http://www.google.com/">Terms of Service</a></font> <font color='#000000'>and</font> <font color='#3D8AFF'><a href="http://www.google.com/">Privacy Policy</a></font></string>
+</resources>
