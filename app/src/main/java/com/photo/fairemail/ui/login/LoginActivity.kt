@@ -6,10 +6,10 @@ import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.SignInButton
 import com.photo.fairemail.R
 import com.photo.fairemail.databinding.ActivityLoginBinding
 import com.photo.fairemail.ui.main.MainActivity
@@ -33,11 +33,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        if(isValidEmail(edt_email.text.toString())){
-            layout_email.endIconDrawable = resources.getDrawable(R.drawable.ic_check_email)
-        }
-        else{
-            layout_email.endIconDrawable = null
+        edt_email.doOnTextChanged { text, start, before, count ->
+            if(isValidEmail(text)){
+                layout_email.endIconDrawable = resources.getDrawable(R.drawable.ic_check_email)
+                btn_start.setBackgroundResource(R.drawable.bg_btn_email_correct)
+            }
+            else{
+                layout_email.endIconDrawable = null
+                btn_start.setBackgroundResource(R.drawable.bg_btn_email_wrong)
+            }
         }
     }
 
@@ -83,7 +87,7 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun isValidEmail(target: String?): Boolean {
+    private fun isValidEmail(target: CharSequence?): Boolean {
         return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches()
     }
 

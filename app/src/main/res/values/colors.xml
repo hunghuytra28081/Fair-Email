@@ -12,5 +12,6 @@
     <color name="blue_slide">#2B78EB</color>
     <color name="blue_dodger">#1469FF</color>
     <color name="grey_white">#A6ECECEC</color>
+    <color name="grey_black">#A6CACACA</color>
 
 </resources>

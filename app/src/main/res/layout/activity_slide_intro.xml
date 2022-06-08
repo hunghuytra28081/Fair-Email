@@ -64,7 +64,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="@dimen/_36sdp"
         android:layout_marginBottom="@dimen/_17sdp"
-        android:background="@drawable/bg_button_slide"
+        android:background="@drawable/bg_btn_email_correct"
         android:text="@string/next"
         android:textAllCaps="false"
         android:visibility="gone"
