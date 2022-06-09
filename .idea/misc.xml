@@ -8,9 +8,12 @@
         <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/drawable/bg_button_sign_in_gmail.xml" value="0.212" />
         <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/drawable/bg_button_slide.xml" value="0.212" />
         <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/drawable/ic__check_email.xml" value="0.212" />
+        <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/layout/activity_account.xml" value="0.2375" />
+        <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/layout/activity_email_provider.xml" value="0.3546875" />
         <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/layout/activity_slide_intro.xml" value="0.3546875" />
+        <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/layout/activity_slide_intro.xml" value="0.22" />
+        <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/layout/item_loading.xml" value="0.265234375" />
         <entry key="..\:/hung/Bravo/FairEmail/app/src/main/res/layout/item_slide_intro.xml" value="0.3546875" />
       </map>
     </option>

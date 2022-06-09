@@ -16,12 +16,17 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
+import com.photo.fairemail.ui.login.LoginActivity
+import kotlinx.android.synthetic.main.activity_account.*
+import kotlinx.android.synthetic.main.activity_account.view.*
 
 fun Dialog.showCustomDialog(layoutId: Int, isCancelable: Boolean) {
     this.apply {
@@ -128,4 +133,12 @@ fun Activity.hideKeyboard() {
 fun Context.hideKeyboard(view: View) {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun WebView.loadWebView(url: String){
+    this.apply {
+        settings.javaScriptEnabled = true
+        loadUrl(url)
+        webViewClient = WebViewClient()
+    }
 }

@@ -67,7 +67,7 @@
         android:background="@drawable/bg_btn_email_correct"
         android:text="@string/next"
         android:textAllCaps="false"
-        android:visibility="gone"
         android:textColor="@color/white"
-        android:textSize="@dimen/_13sdp" />
+        android:textSize="@dimen/_13sdp"
+        android:visibility="gone" />
 </RelativeLayout>

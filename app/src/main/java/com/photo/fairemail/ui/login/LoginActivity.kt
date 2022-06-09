@@ -15,8 +15,12 @@ import com.photo.fairemail.R
 import com.photo.fairemail.databinding.ActivityLoginBinding
 import com.photo.fairemail.extension.customTextViewAgree
 import com.photo.fairemail.extension.hideKeyboard
+import com.photo.fairemail.extension.isValidEmail
+import com.photo.fairemail.ui.account.AccountActivity
 import com.photo.fairemail.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_slide_intro.*
+import kotlin.math.sign
 
 
 class LoginActivity : AppCompatActivity() {
@@ -36,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        hideKeyboard()
         edt_email.doOnTextChanged { text, start, before, count ->
             if (isValidEmail(text)) {
                 layout_email.endIconDrawable = resources.getDrawable(R.drawable.ic_check_email)
@@ -45,7 +50,9 @@ class LoginActivity : AppCompatActivity() {
                 btn_start.setBackgroundResource(R.drawable.bg_btn_email_wrong)
             }
         }
+    }
 
+    private fun initHandles() {
         customTextViewAgree(this, terms_and_privacy, constraint_terms, constraint_privacy)
 
         img_back_terms.setOnClickListener {
@@ -55,11 +62,22 @@ class LoginActivity : AppCompatActivity() {
         img_back_privacy.setOnClickListener {
             constraint_privacy.animate().translationY(3500F).duration = 1000
         }
-    }
 
-    private fun initHandles() {
         google_sign_in.setOnClickListener {
             signIn()
+        }
+
+        btn_start.setOnClickListener {
+            val strEmail = edt_email.text.toString().trim()
+
+            when{
+                 strEmail.isValidEmail() -> {
+                     val intent = Intent(this, AccountActivity::class.java)
+                     val url = "https://accounts.google.com"
+                     intent.putExtra(INTENT_ACCOUNT_URL, url)
+                     startActivity(intent)
+                }
+            }
         }
     }
 
@@ -85,9 +103,9 @@ class LoginActivity : AppCompatActivity() {
                 val googleSignIn = task.getResult(ApiException::class.java)
                 googleSignIn.email?.let {
                     intentActivity()
-                } ?:  Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                } ?:
+                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
             } catch (e: ApiException) {
-                Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
             }
         } else {
             Toast.makeText(this, "cancel", Toast.LENGTH_SHORT).show()
@@ -104,11 +122,6 @@ class LoginActivity : AppCompatActivity() {
         return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches()
     }
 
-    companion object {
-        const val RC_SIGN_IN = 1001
-        const val TAG = "Main123"
-    }
-
     override fun onBackPressed() {
         if (constraint_terms.translationY == 0F) {
             constraint_terms.animate().translationY(3500F).duration = 1000
@@ -117,5 +130,11 @@ class LoginActivity : AppCompatActivity() {
         } else {
             finish()
         }
+    }
+
+    companion object {
+        private const val RC_SIGN_IN = 1001
+        const val INTENT_ACCOUNT_URL = "intent_url"
+
     }
 }

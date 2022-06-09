@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
     tools:context=".ui.login.LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -108,6 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/bg_grey"
+        android:fitsSystemWindows="false"
         android:translationY="1000dp">
 
         <androidx.cardview.widget.CardView
@@ -126,7 +126,7 @@
                 android:layout_marginStart="@dimen/_12sdp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:paddingTop="@dimen/_8sdp">
+                android:paddingTop="@dimen/_12sdp">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_back_terms"
@@ -152,6 +152,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/bg_grey"
+        android:fitsSystemWindows="false"
         android:translationY="1000dp">
 
         <androidx.cardview.widget.CardView
@@ -170,7 +171,7 @@
                 android:layout_marginStart="@dimen/_12sdp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:paddingTop="@dimen/_8sdp">
+                android:paddingTop="@dimen/_12sdp">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_back_privacy"
