@@ -18,7 +18,9 @@
     <string name="play_again">Play Again</string>
 
     <string name="already_login_screen"><font color='#000000'>By continuing you agree to the Spark</font> <font color='#3D8AFF'>Terms of Service</font> <font color='#000000'>and</font> <font color='#3D8AFF'>Privacy Policy</font></string>
-    <string name="rules_login"><font color='#000000'>By continuing you agree to the Spark</font> <font color='#3D8AFF'><a href="http://www.google.com/">Terms of Service</a></font> <font color='#000000'>and</font> <font color='#3D8AFF'><a href="http://www.google.com/">Privacy Policy</a></font></string>
+    <string name="rules_login"><font color='#000000'>By continuing you agree to the Spark</font> <font color='#3D8AFF'><a href="terms:">Terms of Service</a></font> <font color='#000000'>and</font> <font color='#3D8AFF'><a href="privacy:">Privacy Policy</a></font></string>
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="your_email">Your Email</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="privacy_policy">Privacy Policy</string>
 </resources>

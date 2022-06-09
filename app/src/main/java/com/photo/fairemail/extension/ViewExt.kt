@@ -2,19 +2,26 @@ package com.photo.fairemail.extension
 
 import android.app.Activity
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.SystemClock
 import android.text.Html
+import android.text.SpannableStringBuilder
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.view.Gravity
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.fragment.app.Fragment
 
 fun Dialog.showCustomDialog(layoutId: Int, isCancelable: Boolean) {
     this.apply {
@@ -88,16 +95,37 @@ fun View.setOnSingerClick(debounceTime: Long = 500, action: () -> Unit) {
     })
 }
 
-fun TextView.setTextHTML(html: String?) {
-    text = when {
-        html == null -> {
-            "Don't have Summary"
+fun customTextViewAgree(activity: Activity, view: TextView, viewMoveTop: View, viewMoveTop2: View) {
+    val spanTxt = SpannableStringBuilder(
+        "By continuing you agree to the Spark ")
+    spanTxt.append("Terms of service")
+    spanTxt.setSpan(object : ClickableSpan() {
+        override fun onClick(widget: View) {
+            activity.hideKeyboard()
+            viewMoveTop.animate().translationY(0F).duration = 1000
         }
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> {
-            Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
+    }, spanTxt.length - "Term of services".length, spanTxt.length, 0)
+    spanTxt.append(" and")
+    spanTxt.append(" Privacy Policy")
+    spanTxt.setSpan(object : ClickableSpan() {
+        override fun onClick(widget: View) {
+            activity.hideKeyboard()
+            viewMoveTop2.animate().translationY(0F).duration = 1000
         }
-        else -> {
-            Html.fromHtml(html)
-        }
-    }
+    }, spanTxt.length - " Privacy Policy".length, spanTxt.length, 0)
+    view.movementMethod = LinkMovementMethod.getInstance()
+    view.setText(spanTxt, TextView.BufferType.SPANNABLE)
+}
+
+fun Fragment.hideKeyboard() {
+    view?.let { activity?.hideKeyboard(it) }
+}
+
+fun Activity.hideKeyboard() {
+    hideKeyboard(currentFocus ?: View(this))
+}
+
+fun Context.hideKeyboard(view: View) {
+    val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }

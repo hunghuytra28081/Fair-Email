@@ -13,5 +13,7 @@
     <color name="blue_dodger">#1469FF</color>
     <color name="grey_white">#A6ECECEC</color>
     <color name="grey_black">#A6CACACA</color>
+    <color name="black_tran80">#CC000000</color>
+    <color name="bg_grey">#F3F3F3</color>
 
 </resources>

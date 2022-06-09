@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleSignInResult() {
         try {
-//            val account = completedTask.getResult(ApiException::class.java)
             val acct = GoogleSignIn.getLastSignedInAccount(this)
 
             if (acct != null) {
