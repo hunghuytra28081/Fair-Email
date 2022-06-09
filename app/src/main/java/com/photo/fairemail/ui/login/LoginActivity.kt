@@ -16,11 +16,9 @@ import com.photo.fairemail.databinding.ActivityLoginBinding
 import com.photo.fairemail.extension.customTextViewAgree
 import com.photo.fairemail.extension.hideKeyboard
 import com.photo.fairemail.extension.isValidEmail
-import com.photo.fairemail.ui.account.AccountActivity
+import com.photo.fairemail.extension.loadWebView
 import com.photo.fairemail.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_slide_intro.*
-import kotlin.math.sign
 
 
 class LoginActivity : AppCompatActivity() {
@@ -72,10 +70,8 @@ class LoginActivity : AppCompatActivity() {
 
             when{
                  strEmail.isValidEmail() -> {
-                     val intent = Intent(this, AccountActivity::class.java)
-                     val url = "https://accounts.google.com"
-                     intent.putExtra(INTENT_ACCOUNT_URL, url)
-                     startActivity(intent)
+                     val url = "https://accounts.google.com/accountchooser/signinchooser?flowName=GlifWebSignIn&flowEntry=AccountChooser"
+                     loadWebView(url)
                 }
             }
         }

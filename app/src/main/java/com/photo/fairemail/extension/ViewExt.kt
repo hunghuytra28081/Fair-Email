@@ -5,9 +5,9 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Build
 import android.os.SystemClock
-import android.text.Html
 import android.text.SpannableStringBuilder
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
@@ -19,14 +19,10 @@ import android.view.inputmethod.InputMethodManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
+import androidx.browser.customtabs.CustomTabColorSchemeParams
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
-import com.photo.fairemail.ui.login.LoginActivity
-import kotlinx.android.synthetic.main.activity_account.*
-import kotlinx.android.synthetic.main.activity_account.view.*
+
 
 fun Dialog.showCustomDialog(layoutId: Int, isCancelable: Boolean) {
     this.apply {
@@ -135,10 +131,17 @@ fun Context.hideKeyboard(view: View) {
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }
 
-fun WebView.loadWebView(url: String){
-    this.apply {
-        settings.javaScriptEnabled = true
-        loadUrl(url)
-        webViewClient = WebViewClient()
-    }
+fun Activity.loadWebView(url: String){
+    val builder = CustomTabsIntent.Builder()
+    val customTabsIntent = builder.build()
+    customTabsIntent.launchUrl(this, Uri.parse(url))
+
+//    val colorInt = Color.parseColor("#FF0000") //red
+//
+//    val defaultColors = CustomTabColorSchemeParams.Builder()
+//        .setToolbarColor(colorInt)
+//        .build()
+//    builder.setDefaultColorSchemeParams(defaultColors)
+//
+//    builder.addMenuItem(menuItemTitle, menuItemPendingIntent);
 }
