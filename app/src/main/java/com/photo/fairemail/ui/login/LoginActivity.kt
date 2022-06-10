@@ -75,6 +75,10 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+
+        btn_add.setOnClickListener {
+
+        }
     }
 
     private fun initData() {
